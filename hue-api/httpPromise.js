@@ -26,7 +26,7 @@ function _invoke(command, parameters) {
                       result = requestResult.data;
                   }
                   return result;
-              });
+              }).catch(function(error){console.log("Caught http error in node-hue-api - ignore and continue...");});
 
     if (command.postProcessingFn) {
         promise = promise.then(command.postProcessingFn);
