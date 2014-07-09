@@ -37,10 +37,16 @@ function _processUpnpBridgeResults(results) {
 
     if (util.isArray(results)) {
         results.forEach(function(bridge) {
+	if(typeof bridge !== 'undefined'){
             bridges.push(_bridgeResult(bridge));
+	}
         });
     } else {
+ console.log("about to check bridge results"+results);
+if(typeof results !== 'undefined'){
+        console.log("bridge results is defined: "+results);
         bridges.push(_bridgeResult(results));
+}
     }
 
     return bridges;
